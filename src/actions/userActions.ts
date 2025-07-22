@@ -1,6 +1,7 @@
 "use server";
 import { db } from "@/db/drizzle";
 import users from "@/db/schema";
+import { clerkClient } from "@clerk/nextjs/server";
 import { revalidatePath } from "next/cache";
 
 export const getAllUsers = async () => {
@@ -16,6 +17,6 @@ export const addUser = async (user:any) => {
       firstName: user.firstName,
       lastName: user.lastName,
       photo: user.photo,
-  });
+  }).returning({clerkClientId: users?.clerkId});
   revalidatePath("/");
 };
