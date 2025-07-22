@@ -1,7 +1,6 @@
 
-import { create } from "domain";
 import { relations } from "drizzle-orm";
-import { integer, text, boolean, pgTable, serial, timestamp, bigint } from "drizzle-orm/pg-core";
+import { bigint, boolean, pgTable, serial, text, timestamp } from "drizzle-orm/pg-core";
 
 const users = pgTable("users", {
   id: serial("id").primaryKey(),
@@ -11,8 +10,8 @@ const users = pgTable("users", {
   firstName: text("first_name").notNull(),
   lastName: text("last_name").notNull(),
   photo: text("photo").notNull(),
-  createdAt : timestamp("created_at").notNull().defaultNow(),
-  updatedAt : timestamp("updated_at").notNull().defaultNow(),
+  createdAt : timestamp("created_at").defaultNow(),
+  updatedAt : timestamp("updated_at").defaultNow(),
 });
 
 export default users;

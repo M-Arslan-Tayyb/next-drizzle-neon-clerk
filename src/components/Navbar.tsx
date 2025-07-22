@@ -1,12 +1,6 @@
 "use client";
 
-import {
-  SignedIn,
-  SignedOut,
-  useUser,
-  SignOutButton,
-  UserButton,
-} from "@clerk/nextjs";
+import { SignedIn, SignedOut, UserButton, useUser } from "@clerk/nextjs";
 import Link from "next/link";
 
 export default function Navbar() {
